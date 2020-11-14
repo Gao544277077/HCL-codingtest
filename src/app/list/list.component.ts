@@ -36,9 +36,9 @@ export class ListComponent implements OnInit {
   ngOnInit() {
       // complete this function which searches the countries using regex and adds them to searchCountriesList
       this.service.currentCountryName.subscribe( name => {
-        this.searchString=name;
+        this.searchString=name.toLowerCase();
         this.searchCountriesList=this.countries.filter(name=>{
-          if(name.includes(this.searchString)){
+          if(name.toLowerCase().includes(this.searchString)){
             return true;
           }
         });
